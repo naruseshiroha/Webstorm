@@ -13,11 +13,12 @@
          */
         var obj = {};
 
-        //console.log(typeof obj);
+        // console.log(typeof obj); // Object
+        console.log(Object.prototype.toString.call(obj)) // [object Object]
 
         obj.name = "孙悟空";
 
-        //console.log(obj.name);
+        // console.log(obj.name); // 孙悟空
 
         /*
          * 使用对象字面量，可以在创建对象时，直接指定对象中的属性
@@ -38,7 +39,7 @@
 
         };
 
-        console.log(obj2.test);
+        console.log(obj2.test); // Object
 
     </script>
 </head>

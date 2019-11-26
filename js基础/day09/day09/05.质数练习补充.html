@@ -16,7 +16,7 @@
         for (var i = 2; i <= 100000; i++) {
             var flag = true;
             for (var j = 2; j <= Math.sqrt(i); j++) {
-                if (i % j == 0) {
+                if (i % j === 0) {
                     //如果进入判断则证明i不是质数,修改flag值为false
                     flag = false;
                     //一旦进入判断，则证明i不可能是质数了，此时循环再执行已经没有任何意义了
