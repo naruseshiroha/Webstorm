@@ -10,12 +10,12 @@
 
         function isOu(num) {
 
-            return num % 2 == 0;
+            return num % 2 === 0;
         }
 
         var result = isOu(15);
 
-        //console.log("result = "+result);
+        // console.log("result = "+result); // false
 
 
         /*
@@ -30,7 +30,7 @@
 
         result = mianji(5);
 
-        //console.log("result = "+result);
+        // console.log("result = "+result);
 
 
         /*
@@ -67,11 +67,13 @@
             //a(obj);
         }
 
-        //fun(sayHello);
+        // fun(sayHello);
 
-        //fun(function(){alert("hello")});
+        /*fun(function () {
+            alert("hello")
+        });*/
 
-        fun(mianji(10));
+        fun(mianji(10)); // 314
 
         /*
          * mianji()

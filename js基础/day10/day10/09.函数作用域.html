@@ -25,18 +25,18 @@
             var a = "我是fun函数中的变量a";
             var b = 20;
 
-            //console.log("a = "+a);
+            console.log("a = " + a); // 我是fun函数中的变量a
 
             function fun2() {
                 console.log("a = " + window.a);
             }
 
-            fun2();
+            fun2(); // a = 10
 
         }
 
-        //fun();
-        //console.log("b = "+b);
+        fun();
+        // console.log("b = "+b); // ReferenceError: b is not defined
 
         /*
          * 在函数作用域也有声明提前的特性，
@@ -46,9 +46,9 @@
 
         function fun3() {
 
-            fun4();
+            fun4(); // alert
 
-            //console.log(a);
+            console.log(a); // undefined
 
             var a = 35;
 
@@ -58,7 +58,7 @@
 
         }
 
-        //fun3();
+        // fun3();
 
 
         var c = 33;
@@ -67,8 +67,8 @@
          * 在函数中，不适用var声明的变量都会成为全局变量
          */
         function fun5() {
-            //console.log("c = "+c);
-            //c = 10;
+            /*console.log("c = "+c); // 33
+            c = 10;*/
 
             //d没有使用var关键字，则会设置为全局变量
             d = 100;
@@ -77,7 +77,7 @@
         fun5();
 
         //在全局输出c
-        //console.log("d = "+d);
+        // console.log("d = "+d);
 
         var e = 23;
 
