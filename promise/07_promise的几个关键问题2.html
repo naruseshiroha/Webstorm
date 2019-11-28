@@ -36,6 +36,8 @@
         reason => console.log("reason2", reason)
     )
 
+    console.log("----")
+
     const p = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(1) // 后改变的状态(同时指定函数),异步执行回调函数
