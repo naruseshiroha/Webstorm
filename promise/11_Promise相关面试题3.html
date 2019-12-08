@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>11_Promise相关面试题3</title>
+    <meta charset="UTF-8">
+    <title>11_Promise相关面试题3</title>
 </head>
 <body>
+<script type="text/javascript">
+    const first = () => (new Promise((resolve, rejct) => {
+        console.log(3)
+        let p = new Promise((resolve, rejct) => {
+            console.log(7)
+            setTimeout(() => {
+                console.log(5)
+                resolve(6) // 不会输出
+            }, 0)
+            resolve(1)
+        })
+        resolve(2)
+        p.then((arg) => {
+            console.log(arg)
+        })
+    }))
+
+    first().then((arg) => {
+        console.log(arg)
+    })
+    console.log(4)
+</script>
 
 </body>
 </html>

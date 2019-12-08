@@ -238,7 +238,7 @@
         return new Promise((resolve, reject) => {
             // 遍历获取每个promise的结果
             promises.forEach((p, index) => {
-                p.then(
+                Promise.resolve(p).then(
                     value => {
                         resolvedCount++ // 成功的数量加1
                         // p成功,将成功的value保存到values
@@ -266,7 +266,7 @@
         // 返回一个promise
         return new Promise((resolve, reject) => {
             promises.forEach(p => {
-                p.then(
+                Promise.resolve(p).then(
                     value => { // 一旦有成功的,将return的promise变为成功
                         resolve(value)
                     },
@@ -275,6 +275,36 @@
                     }
                 )
             })
+        })
+    }
+
+    /*
+    * 返回一个成功promise对象,它在指定的事件后才确定结果
+    * */
+    Promise.resolveDelay = function (value, time) {
+        // 返回一个成功/失败的Promise
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // value是Promise
+                if (value instanceof Promise) { // 使用value的结果作为promise的结果
+                    value.then(resolve, reject)
+                } else {
+                    // value不是Promise   =>  promise变为成功
+                    resolve(value)
+                }
+            }, time)
+        })
+    }
+
+    /*
+    * 返回一个失败promise对象,它在指定的事件后才确定结果
+    * */
+    Promise.rejectDelay = function (reason, time) {
+        // 返回一个失败的Promise
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(reason)
+            }, time)
         })
     }
 
