@@ -17,6 +17,19 @@
 -->
 <script type="text/javascript" src="axios.js"></script>
 <script type="text/javascript">
+    /*
+    * requestInterceptors: [{fulfilled1(){}, rejected1(){}}, {fulfilled2(){}, rejected2(){}}]
+    * responseInterceptors: [{fulfilled11(){}, rejected11(){}}, {fulfilled22(){}, rejected22(){}}]
+    * chain: [
+    *   fulfilled2, rejected2, fulfilled1, rejected1,
+    *   dispatchRequest, undefined,
+    *   fulfilled11, rejected11, fulfilled22, rejected22
+    * ]
+    * promise链回调: config => (fulfilled2, rejected2) => (fulfilled1, rejected1) // 请求拦截器处理
+    *                       => (dispatchRequest, undefined) // 发请求
+    *                       => (fulfilled11, rejected11) => (fulfilled22, rejected22) // 响应拦截器处理
+    *                       => (onResolved, onRejected) // axios发请求回调处理
+    * */
 
     // 添加请求拦截器(回调函数)
     axios.interceptors.request.use(
