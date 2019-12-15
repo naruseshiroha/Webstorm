@@ -1,5 +1,5 @@
 /*
-* z注册路由组件
+* 登录路由组件
 * */
 import React, {Component} from 'react';
 
@@ -7,10 +7,10 @@ class Login extends Component {
     render() {
         return (
             <div>
-
+                Login
             </div>
         );
     }
 }
 
-export default Register;
+export default Login;

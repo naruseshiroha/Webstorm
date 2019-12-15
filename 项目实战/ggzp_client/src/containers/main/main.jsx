@@ -1,16 +1,16 @@
 /*
-* 登录路由组件
+* 主界面路由组件
 * */
 import React, {Component} from 'react';
 
-class Login extends Component {
+class Main extends Component {
     render() {
         return (
             <div>
-                Login
+                Main
             </div>
         );
     }
 }
 
-export default Register;
+export default Main;
