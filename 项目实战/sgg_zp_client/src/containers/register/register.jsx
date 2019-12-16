@@ -17,7 +17,33 @@ import Logo from "../../components/logo/logo";
 const ListItem = List.Item
 
 class Register extends Component {
+
+    state = {
+        username: "", // 用户名
+        password: "", // 密码
+        password2: "", // 确认密码
+        type: "laoban", // 用户类型       dashen/laoban
+    }
+
+    register = () => {
+        console.log(this.state)
+    }
+
+    // 处理输入数据的改变; 更新对应的状态
+    handleChange = (name, value) => {
+        this.setState({
+                [name]: value   // 属性名不是name, 而是name变量的值
+            }
+        )
+    }
+
+    toLogin = () => {
+        this.props.history.replace("/login")
+    }
+
     render() {
+        const {type} = this.state
+
         return (
             <div>
                 <NavBar>硅&nbsp;谷&nbsp;直&nbsp;聘</NavBar>
@@ -25,22 +51,31 @@ class Register extends Component {
                 <WingBlank>
                     <List>
                         <WhiteSpace/>
-                        <InputItem>用户名:</InputItem>
+                        <InputItem placeholder="请输入用户名" onChange={val => {
+                            this.handleChange("username", val)
+                        }}>用户名:</InputItem>
                         <WhiteSpace/>
-                        <InputItem type="password">密&nbsp;&nbsp;&nbsp;码:</InputItem>
+                        <InputItem placeholder="请输入密码" type="password" onChange={val => {
+                            this.handleChange("password", val)
+                        }}>密&nbsp;&nbsp;&nbsp;码:</InputItem>
                         <WhiteSpace/>
-                        <InputItem type="password">确认密码:</InputItem>
+                        <InputItem placeholder="请输入确认密码" type="password" onChange={val => {
+                            this.handleChange("password2", val)
+                        }}>确认密码:</InputItem>
                         <WhiteSpace/>
                         <ListItem>
                             <span>用户类型:</span>
                             &nbsp;&nbsp;&nbsp;
-                            <Radio>大神</Radio>
+                            <Radio checked={type === "dashen"}
+                                   onChange={(e) => this.handleChange("type", "dashen")}>大神</Radio>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <Radio>老板</Radio>
+                            <Radio checked={type === "laoban"}
+                                   onChange={(e) => this.handleChange("type", "laoban")}>老板</Radio>
                         </ListItem>
                         <WhiteSpace/>
-                        <Button type="primary">注册</Button>
-                        <Button>已有账户</Button>
+                        <Button type="primary" onClick={this.register}>注册</Button>
+                        <WhiteSpace/>
+                        <Button onClick={this.toLogin}>已有账户</Button>
                     </List>
                 </WingBlank>
             </div>
