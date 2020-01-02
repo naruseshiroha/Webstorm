@@ -60,7 +60,7 @@ class Login extends Component {
                             this.handleChange("password", val)
                         }}>密&nbsp;&nbsp;&nbsp;码:</InputItem>
                         <WhiteSpace/>
-                        <Button type="primary" onClick={this.login}>登录</Button>
+                        <Button type="primary" onClick={this.login}>登&nbsp;&nbsp;&nbsp;录</Button>
                         <WhiteSpace/>
                         <Button onClick={this.toRegister}>还没有账户</Button>
                     </List>

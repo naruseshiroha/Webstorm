@@ -50,13 +50,13 @@ class Register extends Component {
                 <Logo/>
                 <WingBlank>
                     <List>
-                        <WhiteSpace/>
-                        <InputItem placeholder="请输入用户名" onChange={val => {
-                            this.handleChange("username", val)
-                        }}>用户名:</InputItem>
-                        <WhiteSpace/>
-                        <InputItem placeholder="请输入密码" type="password" onChange={val => {
-                            this.handleChange("password", val)
+                            <WhiteSpace/>
+                            <InputItem placeholder="请输入用户名" onChange={val => {
+                                this.handleChange("username", val)
+                            }}>用户名:</InputItem>
+                            <WhiteSpace/>
+                            <InputItem placeholder="请输入密码" type="password" onChange={val => {
+                                this.handleChange("password", val)
                         }}>密&nbsp;&nbsp;&nbsp;码:</InputItem>
                         <WhiteSpace/>
                         <InputItem placeholder="请输入确认密码" type="password" onChange={val => {
@@ -73,7 +73,7 @@ class Register extends Component {
                                    onChange={(e) => this.handleChange("type", "laoban")}>老板</Radio>
                         </ListItem>
                         <WhiteSpace/>
-                        <Button type="primary" onClick={this.register}>注册</Button>
+                        <Button type="primary" onClick={this.register}>注&nbsp;&nbsp;&nbsp;册</Button>
                         <WhiteSpace/>
                         <Button onClick={this.toLogin}>已有账户</Button>
                     </List>
